@@ -1,0 +1,31 @@
+.navbar{
+    display: flex;
+    margin: 10px;
+    padding: 10px 20px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+    border: 2px rgb(255, 79, 79) solid;
+}
+.navbar__logoImg{
+    object-fit: contain;
+    height: 60px;
+}
+.navbar__right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+}
+.navbar__rightDashboard{
+    margin-right: 50px;
+}
+.navbar__right button{
+    color: red;
+    border: 1px red solid;
+
+}
+.navbar__logo{
+    /* padding-top: 10px; */
+    /* padding-left: 5px; */
+}

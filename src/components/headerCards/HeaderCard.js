@@ -1,0 +1,21 @@
+import React from 'react';
+import './HeaderCard.css';
+import { Card, CardContent, Typography } from '@material-ui/core';
+
+function HeaderCard({ title, cases, total }) {
+	return (
+		<div className="headerCard">
+			<Card className="headerCard__main">
+				<CardContent>
+					<Typography color="textSecondary" className="headerCard__title">{title}</Typography>
+
+					<h2>{cases}</h2>
+
+					<Typography color="textSecondary" className="headerCard__total">{total} Total</Typography>
+				</CardContent>
+			</Card>
+		</div>
+	);
+}
+
+export default HeaderCard;
