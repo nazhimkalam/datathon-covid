@@ -6,4 +6,9 @@
 .headerCard__main{
     background-color:rgb(245, 245, 245) !important;
     border-top: 8px red solid;
+    transition: 0.2s ease-in-out;
+}
+.headerCard__main:hover{
+    border-top: 13px red solid;
+    transition: 0.2s ease-in-out;
 }
