@@ -28,9 +28,8 @@ function App() {
 					<LineChart />
 				</div>
 			</div>
-
 			{/* detector */}
-			<div className="app__covDetector">
+			<div className="app__covDetector" id="detection">
 				<div className="app__covDetectorHead">
 					<h1>COVID-19 DETECTOR</h1>
 					<p>

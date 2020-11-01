@@ -1,6 +1,8 @@
 import { Button } from '@material-ui/core';
 import React from 'react';
 import './NavBar.css';
+import { Link, animateScroll as scroll } from "react-scroll";
+
 
 function NavBar() {
 	return (
@@ -10,10 +12,7 @@ function NavBar() {
 				</div>
 
 				<div className="navbar__right">
-					<Button className="navbar__rightDashboard">DASHBOARD</Button>
-
-					<Button className="navbar__rightPrediction">DETECTION</Button>
-
+					<Button className="navbar__rightPrediction"><Link to="detection" smooth={true} duration={1000}>DETECTION</Link></Button>
 					<Button className="navbar__rightUpdate">UPDATE</Button>
 				</div>
 		</div>

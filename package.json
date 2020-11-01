@@ -20,6 +20,7 @@
     "react-leaflet": "^3.0.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-scroll": "^1.8.1",
     "react-svg-tooltip": "0.0.11",
     "react-world-countries-map": "^1.1.0"
   },
