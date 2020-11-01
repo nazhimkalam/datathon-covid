@@ -1,0 +1,12 @@
+.map {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+.map__mainMap, .map__datePicker{
+	display: flex;
+	flex: 1;
+	justify-content: space-around;
+	padding: 30px;
+}

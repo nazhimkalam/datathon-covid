@@ -4,9 +4,10 @@
     margin: 8px;
 }
 .headerCard__main{
+    transition: 0.2s ease-in-out !important;
     background-color:rgb(245, 245, 245) !important;
     border-top: 8px red solid;
-    transition: 0.2s ease-in-out;
+    height: 150px !important;
 }
 .headerCard__main:hover{
     border-top: 13px red solid;

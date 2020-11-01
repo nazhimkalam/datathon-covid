@@ -13,6 +13,8 @@ function NavBar() {
 					<Button className="navbar__rightDashboard">DASHBOARD</Button>
 
 					<Button className="navbar__rightPrediction">DETECTION</Button>
+
+					<Button className="navbar__rightUpdate">UPDATE</Button>
 				</div>
 		</div>
 	);
