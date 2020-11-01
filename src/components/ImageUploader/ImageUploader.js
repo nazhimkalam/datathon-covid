@@ -24,27 +24,35 @@ function ImageUploader() {
 		setSelectedFile(e.target.files[0]);
 	};
 
+	let axiosConfig = {
+		headers: {
+			'Content-Type': 'application/json;charset=UTF-8',
+			'Access-Control-Allow-Origin': '*',
+		},
+	};
+
 	const fileUploadHandler = () => {
 		// console.log(selectedFile);
 
 		setLoading(true);
 		setDisplaySampleInput(false);
 		setdetectedBool(false);
-		// const formData = new FormData();
-		// formData.append('image', selectedFile, selectedFile.name);
-		// axios
-		// 	.post('endpointLink', formData )
-		// 	.then((res) => {
-		//         setLoading(false);
-		//         console.log('Output from the back end');
-		//         setOutput(res)
-		// 	});
+		const formData = new FormData();
+		formData.append('file', selectedFile, selectedFile.name);
+		axios.post('http://127.0.0.1:1212/predict', formData, axiosConfig).then((res) => {
+			setLoading(false);
+			console.log('Output from the back end');
+			console.log(res);
+			setOutput(res);
+		});
 
 		// testing purposes
-		setTimeout(() => {
-			setLoading(false);
-			setOutput('COVID-19');
-		}, 800);
+		// console.log(formData);
+		// console.log(selectedFile.name);
+		// setTimeout(() => {
+		// 	setLoading(false);
+		// 	setOutput('COVID-19');
+		// }, 800);
 	};
 
 	const handleClick = (event) => {
@@ -89,10 +97,12 @@ function ImageUploader() {
 				<input style={{ display: 'none' }} type="file" ref={hiddenFileInput} onChange={fileSelectedHandler} />
 				<div>
 					<Button onClick={handleClick}>Pick File</Button>
-					<Button onClick={fileUploadHandler} disabled = {selectedFile===null}>DETECT</Button>
+					<Button onClick={fileUploadHandler} disabled={selectedFile === null}>
+						DETECT
+					</Button>
 				</div>
 			</div>
-			<br/>
+			<br />
 		</div>
 	);
 }
