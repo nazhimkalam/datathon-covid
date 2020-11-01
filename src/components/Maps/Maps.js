@@ -4,6 +4,7 @@ import React from 'react';
 import './Maps.css';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import { useState } from 'react';
 
 const useStyles = makeStyles((theme) => ({
 	container: {
@@ -21,15 +22,32 @@ function Maps() {
 	const classes = useStyles();
 	var dateNow = new Date();
 	var currentDate = '';
+	const [responseData, setResponseData] = useState(null);
+
+	const selectedDateHandle = (event) => {
+		const selectedDate = event.target.value;
+		console.log(selectedDate);
+
+		// GET REQUEST FOR THE RESULT
+		const fetchData = async () => {
+			const response = await fetch('endpoint' + selectedDate)
+				.then((res) => res.json())
+				.catch((err) => console.log(err + ' <---- error message'));
+			console.log(response);
+			setResponseData(response);
+		};
+	};
 
 	if (dateNow.getDate() < 10) {
 		currentDate = dateNow.getFullYear() + '-' + (dateNow.getMonth() + 1) + '-0' + dateNow.getDate();
 	} else {
 		currentDate = dateNow.getFullYear() + '-' + (dateNow.getMonth() + 1) + '-' + dateNow.getDate();
 	}
-	console.log(currentDate);
+	// console.log(currentDate);
+
 	return (
 		<div className="map">
+			{/* datepicker */}
 			<div className="map__datePicker">
 				<form className={classes.container} noValidate>
 					<TextField
@@ -37,6 +55,7 @@ function Maps() {
 						label="Select date"
 						type="date"
 						defaultValue={currentDate}
+						onChange={selectedDateHandle}
 						className={classes.textField}
 						InputLabelProps={{
 							shrink: true,
@@ -45,6 +64,7 @@ function Maps() {
 				</form>
 			</div>
 
+			{/* map */}
 			<div className="map__mainMap">
 				<img
 					src="https://www.worldometers.info/img/maps/sri_lanka_physical_map.gif"
