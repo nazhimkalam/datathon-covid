@@ -92,6 +92,7 @@ function ImageUploader() {
 					<Button onClick={fileUploadHandler} disabled = {selectedFile===null}>DETECT</Button>
 				</div>
 			</div>
+			<br/>
 		</div>
 	);
 }

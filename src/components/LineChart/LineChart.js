@@ -19,7 +19,7 @@ function LineChart() {
 		datasets: [
 			{
 				label: 'No of Cases',
-				backgroundColor: '#d30000',
+				backgroundColor: '#000000',
 				borderColor: 'rgba(0,0,0,1)',
 				borderWidth: 2,
 				data: [65, 59, 80, 81, 56, 80, 20, 60, 71, 10, 36],
