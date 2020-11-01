@@ -8,29 +8,49 @@ function ImageUploader() {
 	const [output, setOutput] = useState(null);
 	const hiddenFileInput = useRef(null);
 	const [loading, setLoading] = useState(false);
-	const [displaySampleInput, setDisplaySampleInput] = useState(false);
-	const [detectedBool, setdetectedBool] = useState(true);
+	const [displaySampleInput, setDisplaySampleInput] = useState(true);
+	const [detectedBool, setdetectedBool] = useState(false);
 
-	useEffect(() => {}, [output]);
+	useEffect(() => {
+		if (output === null) {
+			setdetectedBool(false);
+			// setDisplaySampleInput(true);
+		} else {
+			setdetectedBool(true);
+		}
+	}, [output]);
 
 	const fileSelectedHandler = (e) => {
 		setSelectedFile(e.target.files[0]);
 	};
 
 	const fileUploadHandler = () => {
-		console.log(selectedFile);
+		// console.log(selectedFile);
+
+		setLoading(true);
+		setDisplaySampleInput(false);
+		setdetectedBool(false);
 		// const formData = new FormData();
 		// formData.append('image', selectedFile, selectedFile.name);
 		// axios
-		// 	.post('endpointLink', formData })
+		// 	.post('endpointLink', formData )
 		// 	.then((res) => {
+		//         setLoading(false);
 		//         console.log('Output from the back end');
 		//         setOutput(res)
 		// 	});
+
+		// testing purposes
+		setTimeout(() => {
+			setLoading(false);
+			setOutput('COVID-19');
+		}, 800);
 	};
 
 	const handleClick = (event) => {
 		hiddenFileInput.current.click();
+		setOutput(null);
+		setDisplaySampleInput(true);
 	};
 
 	return (
@@ -60,7 +80,7 @@ function ImageUploader() {
 			{detectedBool && (
 				<div className="detectedOutputResult">
 					{/* <h1>{output}</h1> */}
-					<h1>Normal</h1>
+					<h1>{output}</h1>
 				</div>
 			)}
 
@@ -69,7 +89,7 @@ function ImageUploader() {
 				<input style={{ display: 'none' }} type="file" ref={hiddenFileInput} onChange={fileSelectedHandler} />
 				<div>
 					<Button onClick={handleClick}>Pick File</Button>
-					<Button onClick={fileUploadHandler}>DETECT</Button>
+					<Button onClick={fileUploadHandler} disabled = {selectedFile===null}>DETECT</Button>
 				</div>
 			</div>
 		</div>
