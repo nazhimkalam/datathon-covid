@@ -85,7 +85,7 @@ function ImageUploader() {
 			)}
 
 			<div className="imageUploader__buttons">
-				<h3>Upload Image </h3>
+				{/* <h3>Upload Image </h3> */}
 				<input style={{ display: 'none' }} type="file" ref={hiddenFileInput} onChange={fileSelectedHandler} />
 				<div>
 					<Button onClick={handleClick}>Pick File</Button>
