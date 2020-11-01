@@ -32,7 +32,7 @@ function App() {
 			{/* detector */}
 			<div className="app__covDetector">
 				<div className="app__covDetectorHead">
-					<h2>COVID-19 DETECTOR</h2>
+					<h1>COVID-19 DETECTOR</h1>
 					<p>
 						To use this, you have to upload an image of a human chest xray and then click on detect to get the result.
 					</p>
