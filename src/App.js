@@ -12,9 +12,9 @@ function App() {
 		<div className="app">
 			<NavBar />
 			<div className="app__cards">
-				<HeaderCard title="Cases" cases={45} total={200} />
-				<HeaderCard title="Recovery" cases={14} total={500} />
-				<HeaderCard title="Deaths" cases={54} total={807} />
+				<HeaderCard title="Cases" cases={45} total={200} color="red" />
+				<HeaderCard title="Recovery" cases={14} total={500} color="green" />
+				<HeaderCard title="Deaths" cases={54} total={807} color="black" />
 			</div>
 
 			<Maps />
