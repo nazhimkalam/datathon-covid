@@ -32,10 +32,11 @@
 }
 .detectedOutputResult h1 {
 	font-weight: 700;
-	font-size: 40px;
+    font-size: 40px;
 }
 .detectedOutputResult {
 	padding: 0px 200px;
     border: 3px red solid;
+    margin: 85px;
     border-radius: 999px;
 }
